@@ -11,10 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
-import {PokemonService} from './pokemon/pokemon.service';
+import { PokemonService } from './pokemon/pokemon.service';
 import { StatisticsComponent } from './pokemon/statistics/statistics.component';
-import { HttpConfigService } from './http-config.service';
-
 
 registerLocaleData(en);
 
@@ -33,7 +31,11 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, PokemonService, HttpConfigService],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    PokemonService,
+    HttpCaller,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
