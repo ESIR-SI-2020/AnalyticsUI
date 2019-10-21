@@ -33,7 +33,7 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, PokemonService, HttpConfigService s],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, PokemonService, HttpConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

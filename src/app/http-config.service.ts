@@ -11,9 +11,9 @@ export class HttpConfigService {
 
   private pokemonUrl = environment.apiUrl;
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  async getPokemons(url : string = "/pokemon"){
+  async getPokemons(url: string = "/pokemon"){
     let result;
     const response = await this.http.request('GET', `${this.pokemonUrl}${url}`)
       .toPromise()
@@ -23,7 +23,7 @@ export class HttpConfigService {
     return result;
   }
 
-  async getPokemon(url: string = "/pokemon", id:string){
+  async getPokemon(url: string = "/pokemon", id: string){
     let result;
     const response = await this.http.request('GET', `${this.pokemonUrl}${url}/${id}`)
       .toPromise()
