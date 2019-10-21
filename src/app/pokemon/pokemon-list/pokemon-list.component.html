@@ -1,0 +1,10 @@
+<h2>Pokemons</h2>
+
+<div *ngFor="let pokemon of pokemons | async ; index as pokemonId">
+
+  <h3>
+    <a [title]="pokemon.name + ' details'" [routerLink]="['/pokemons', pokemonId+1]">
+      {{ pokemon.name }}
+    </a>
+  </h3>
+</div>
