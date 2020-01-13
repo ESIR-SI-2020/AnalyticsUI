@@ -1,11 +1,12 @@
 # Roadmap
 
+First you might want to run `npm install` before you run `ng serve` to view your app on http://localhost:4200
+
 ## Create a first component
 
-The first thing you need to do is to create a new component. You can create it manually or with the following command, replacing newComponent by the name of you component:
-```sh
-ng generate component newComponent
-```
+The first thing you need to do is to create a new component. You can create it manually or with the following command, replacing newComponent by the name of you component : `ng generate component newComponent`
+
+
 If you create it manually, create the files :
 * newComponent.component.ts
 * newComponent.component.html
@@ -34,10 +35,8 @@ import { NewComponentComponent } from './new-component/new-component.component';
 
 ```
 
-After that you need to call you component in you app. You can do so by adding the following line to you code :
-```html
-<newComponent></newComponent>
-```
+After that you need to call you component in you app. You can do so by adding the following line to you code `<newComponent></newComponent>`
+
 ## Make it look good
 
 In the beginning, you should try and display false data hard coded in your component. You should display it like you want the final result to be.
@@ -46,10 +45,9 @@ For the project I used NG-ZORRO a lot, you can find more about it here : https:/
 
 ## Create a first service
 
-You can create a service using the command :
-```sh
-ng generate service newService
-```
+You can create a service using the command : `ng generate service newService`
+If you create it manually, just add the file newService.service.ts
+
 The services are used to contact the api to get data and pass it to the component wich will display it.
 
 Add this service in your component by adding it to the constructor of you component. Then you have to move the hard coded data in your component to your service. You will have to make you component call for the data in your service.
