@@ -1,27 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClient } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from 'ng-zorro-antd';
+import { IconDefinition } from '@ant-design/icons-angular';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+
+import { AppComponent } from './app.component';
 import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
-import { PokemonService } from './pokemon/pokemon.service';
-import { StatisticsComponent } from './pokemon/statistics/statistics.component';
+import { PokemonService } from './pokemon/services/pokemon.service';
+import { HttpCaller } from './utils/http-caller';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(en);
+
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonDetailsComponent,
-    PokemonListComponent,
-    StatisticsComponent
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,12 +36,12 @@ registerLocaleData(en);
     AppRoutingModule,
     BrowserAnimationsModule,
     NgZorroAntdModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    PokemonService,
-    HttpCaller,
+    { provide: NZ_ICONS, useValue: icons }
   ],
   bootstrap: [AppComponent]
 })
