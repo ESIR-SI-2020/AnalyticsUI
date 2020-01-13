@@ -46,10 +46,7 @@ For the project I used NG-ZORRO a lot, you can find more about it here : https:/
 ## Create a first service
 
 You can create a service using the command : `ng generate service newService`
-<<<<<<< HEAD
 If you create it manually, just add the file newService.service.ts
-=======
->>>>>>> 0dc128067c72d00c287f4f0a53d16c99320b9332
 
 The services are used to contact the api to get data and pass it to the component wich will display it.
 
