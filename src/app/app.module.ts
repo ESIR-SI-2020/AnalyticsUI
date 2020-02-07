@@ -10,12 +10,16 @@ import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from 'ng-zorro-antd';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 
+import { ApolloModule } from 'apollo-angular';
+import { HttpLinkModule } from 'apollo-angular-link-http';
+
 import { AppComponent } from './app.component';
 import { PokemonDetailsComponent } from './pokemon/pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.component';
 import { PokemonService } from './pokemon/services/pokemon.service';
 import { HttpCaller } from './utils/http-caller';
 import { AppRoutingModule } from './app-routing.module';
+import { ArticleListComponent } from './article/article-list/article-list.component';
 
 registerLocaleData(en);
 
@@ -28,10 +32,13 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     PokemonDetailsComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
+    ApolloModule,
+    HttpLinkModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
