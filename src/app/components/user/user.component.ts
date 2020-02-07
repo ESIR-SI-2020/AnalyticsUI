@@ -18,12 +18,17 @@ export class UserComponent implements OnInit {
   checkoutForm;
 
   constructor(
-    private userCreateService : UserCreateService, private formBuilder: FormBuilder
+    private userCreateService: UserCreateService, private formBuilder: FormBuilder
   ) {  this.checkoutForm = this.formBuilder.group({
     name: '',
     email: '',
-    password: ''
-  });}
+    password: '',
+    streetNumber: '',
+    complement: '',
+    streetName: '',
+    postalCode: ''
+  });
+}
 
   ngOnInit() {
   }
@@ -31,9 +36,18 @@ export class UserComponent implements OnInit {
   onSubmit(userData) {
     // Process checkout data here
     console.warn('onSubmit', userData);
+    const address = {
+      postalCode: userData.postalCode,
+      street : userData.streetName,
+      streetNumber: userData.streetNumber,
+      complement: userData.complement,
+    };
+    this.userCreateService.createUser(userData.name, userData.email, userData.password, address).subscribe(
+      (data) => console.log(data),  //changed
+      (err) => console.log(err),
+      () => console.log('Done'));
     this.checkoutForm.reset();
   }
-    //this.userCreateService.createUser(this.userName, this.email, this.password, this.address);
 
   
 
