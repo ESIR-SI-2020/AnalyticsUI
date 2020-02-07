@@ -16,6 +16,9 @@ import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.compon
 import { PokemonService } from './pokemon/services/pokemon.service';
 import { HttpCaller } from './utils/http-caller';
 import { AppRoutingModule } from './app-routing.module';
+import { ArticleListComponent } from './article/article-list/article-list.component';
+import { HomeComponent } from './home/home.component';
+import { ArticleService } from './article/services/article.service';
 
 registerLocaleData(en);
 
@@ -28,7 +31,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     PokemonDetailsComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    ArticleListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NZ_ICONS, useValue: icons }
+    { provide: NZ_ICONS, useValue: icons },
+    PokemonService,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })

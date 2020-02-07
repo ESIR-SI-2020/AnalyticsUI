@@ -1,0 +1,44 @@
+<h2>Articles</h2>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <div *ngFor="let article of articles">
+      <nz-card style="width:300px;" nzTitle="{{article.url}}" [nzExtra]="extraTemplate">
+          <p>{{article.owner}}</p>
+          <div *ngFor="let tag of article.tags">
+            {{tag}}
+          </div>
+        </nz-card>
+    </div>
+  </div>
+  <div nz-col nzSpan="12">
+    <h3>New Article :</h3>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="url">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="url" placeholder="url" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="owner">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="owner" placeholder="owner" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="tag">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="tag" placeholder="tag" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row>
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary">Create</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
