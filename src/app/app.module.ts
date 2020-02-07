@@ -5,16 +5,22 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component'; 
 import { UserComponent } from './components/user/user.component';
+import { HeaderComponent } from './components/commons/header/header/header.component';
+import { FormsModule, ReactiveFormsModule  }   from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    HeaderComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
