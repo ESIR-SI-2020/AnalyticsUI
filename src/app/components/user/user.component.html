@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <h3 align="center">Register</h3>
-        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" method="POST">
             <label>Choose a username</label>
             <input type="username" class="form-control" id="usernameInput" aria-describedby="userNameHelp" placeholder="Enter username" formControlName="name">
             <div class="form-group">
