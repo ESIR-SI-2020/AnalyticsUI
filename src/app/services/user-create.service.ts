@@ -28,12 +28,13 @@ export class UserCreateService {
           "address": address
     }
     console.log("user create service");
-    console.log(body)
+    console.log(body);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type' : 'application/json'
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type' : 'application/json',
       })
-    }
+    };
 
     return this.http.post<any>('http://148.60.11.161:8099/users', body, httpOptions)
     .pipe(
