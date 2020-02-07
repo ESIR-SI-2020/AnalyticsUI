@@ -6,7 +6,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_ICONS, fr_FR } from 'ng-zorro-antd';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 
@@ -16,6 +16,8 @@ import { PokemonListComponent } from './pokemon/pokemon-list/pokemon-list.compon
 import { PokemonService } from './pokemon/services/pokemon.service';
 import { HttpCaller } from './utils/http-caller';
 import { AppRoutingModule } from './app-routing.module';
+import { CreateArticleComponent } from './articles/create-article/create-article.component';
+import fr from '@angular/common/locales/fr';
 
 registerLocaleData(en);
 
@@ -28,7 +30,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     PokemonDetailsComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    CreateArticleComponent
   ],
   imports: [
     BrowserModule,
